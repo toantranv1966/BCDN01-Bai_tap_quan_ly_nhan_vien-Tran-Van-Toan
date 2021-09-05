@@ -1,5 +1,4 @@
 function Validation(){
-    // Phương thức 
     
     // Kiểm tra ô nhập tài khoản có bị trống hay không
     this.checkEmpty = function(inputVal,spanID,message){
@@ -15,7 +14,8 @@ function Validation(){
             return true;
         }
     }
-// Kiểm tra mã trùng
+
+    // Kiểm tra mã trùng
     this.checkID = function(inputVal,spanID,message,mang){
         // Kiểm tra mã đã tồn tại trong mãng
         var isExist = false;
@@ -41,7 +41,7 @@ function Validation(){
     this.checkName = function(inputVal,spanID,message){
         // Đổi kiểu chuổi => kiểu RegExp & dùng hàm test()
         var pattern = new RegExp("^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹý\\s]+$");
-
+    
         if(pattern.test(inputVal)){
             // Hợp lệ
             document.getElementById(spanID).className = "sp-thongbao";
@@ -72,18 +72,18 @@ function Validation(){
 
     // Kiểm tra dropdown
     this.checkDropdown = function(selID,spanID,message){
-       var optIndex = document.getElementById(selID).selectedIndex;
-       if(optIndex != 0){
-           // Hợp lệ
-           document.getElementById(spanID).className = "sp-thongbao";
-           document.getElementById(spanID).innerHTML = "";
-           return true;
-       }else{
-        document.getElementById(spanID).className = "text-danger";
-        document.getElementById(spanID).innerHTML = message;
-        return false;
-       }
-    }
+        var optIndex = document.getElementById(selID).selectedIndex;
+        if(optIndex != 0){
+            // Hợp lệ
+            document.getElementById(spanID).className = "sp-thongbao";
+            document.getElementById(spanID).innerHTML = "";
+            return true;
+        }else{
+         document.getElementById(spanID).className = "text-danger";
+         document.getElementById(spanID).innerHTML = message;
+         return false;
+        }
+     }
 
     // Kiểm tra mật khẩu (độ dài 6 đến 8 ký tự)
     this.checkPass = function(inputVal,spanID,message){
@@ -98,7 +98,7 @@ function Validation(){
             document.getElementById(spanID).innerHTML = message;
         return false;
         }
-
+    
     }
 
     // Kiểm tra số nguyên
@@ -130,33 +130,33 @@ function Validation(){
         }
     }
 
-// Kiểm tra ngày
-this.checkDate = function(inputVal,spanID,message){
-    var pattern = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
-    if(inputVal.match(pattern)){
-        // Hợp lệ
-        document.getElementById(spanID).className = "sp-thongbao";
-       document.getElementById(spanID).innerHTML = "";
-       return true;
-    }else{
-        document.getElementById(spanID).className = "text-danger";
-        document.getElementById(spanID).innerHTML = message;
-    return false;
+    // Kiểm tra ngày
+    this.checkDate = function(inputVal,spanID,message){
+        var pattern = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
+        if(inputVal.match(pattern)){
+            // Hợp lệ
+            document.getElementById(spanID).className = "sp-thongbao";
+           document.getElementById(spanID).innerHTML = "";
+           return true;
+        }else{
+            document.getElementById(spanID).className = "text-danger";
+            document.getElementById(spanID).innerHTML = message;
+        return false;
+        }
     }
-}
 
-// Kiểm tra giờ làm
-this.checkGiolam = function(inputVal,spanID,message){
-    if(80 <= inputVal && inputVal <= 200){
-        // Hợp lệ
-        document.getElementById(spanID).className = "sp-thongbao";
-       document.getElementById(spanID).innerHTML = "";
-       return true;
-    }else{
-        document.getElementById(spanID).className = "text-danger";
-        document.getElementById(spanID).innerHTML = message;
-    return false;
+    // Kiểm tra giờ làm
+    this.checkGiolam = function(inputVal,spanID,message){
+        if(80 <= inputVal && inputVal <= 200){
+            // Hợp lệ
+            document.getElementById(spanID).className = "sp-thongbao";
+           document.getElementById(spanID).innerHTML = "";
+           return true;
+        }else{
+            document.getElementById(spanID).className = "text-danger";
+            document.getElementById(spanID).innerHTML = message;
+        return false;
+        }
     }
-}
 
 }

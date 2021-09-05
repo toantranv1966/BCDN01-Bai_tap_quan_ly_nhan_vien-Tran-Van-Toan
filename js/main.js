@@ -54,7 +54,16 @@ function hienthiTable(mang){
 // Load Form thêm nhân viên & vô hiệu button btnCapNhat
 function loadForm(){
     $('#myModal').modal(true);
+    
     document.getElementById("btnCapNhat").disabled = true;
+    document.getElementById("tbTKNV").className = "sp-thongbao";
+    document.getElementById("tbTen").className = "sp-thongbao";
+    document.getElementById("tbEmail").className = "sp-thongbao";
+    document.getElementById("tbMatKhau").className = "sp-thongbao";
+    document.getElementById("tbNgay").className = "sp-thongbao";
+    document.getElementById("tbLuongCB").className = "sp-thongbao";
+    document.getElementById("tbChucVu").className = "sp-thongbao";
+    document.getElementById("tbGiolam").className = "sp-thongbao";
 }
 
 document.getElementById("btnThem").onclick = loadForm;
@@ -145,7 +154,7 @@ function xoaNV(taikhoannv){
 
 function xemChiTietNV(taikhoannv){
 
-    $('#myModal').modal(true);
+    loadForm();
 
     // Vô hiệu button Thêm nhân viên
     document.getElementById("btnThemNV").disabled = true;
@@ -237,21 +246,20 @@ function timKiemTheoLoai(tuKhoaLoai){
     hienthiTable(mangKQ);
 }
 
-    document.getElementById("searchName").addEventListener("keyup",timKiemTheoLoai);
+document.getElementById("searchName").addEventListener("keyup",timKiemTheoLoai);
 
-    function closeFormNhap(){
-        getELE("header-title").innerHTML = "Thêm nhân viên";
-        document.getElementById("btnThemNV").disabled = false;
-        
-        getELE("formQLNV").reset();
+function closeFormNhap(){
+    getELE("header-title").innerHTML = "Thêm nhân viên";
+    document.getElementById("btnThemNV").disabled = false;
 
-        if(getELE("tknv").disabled == true){
-           return getELE("tknv").disabled = false;
-        }else 
-        {
-            return getELE("tknv").disabled = false;
-        }
+    getELE("formQLNV").reset();
 
-        $('#myModal').modal(false);
-
+    if(getELE("tknv").disabled == true){
+       return getELE("tknv").disabled = false;
+    }else 
+    {
+        return getELE("tknv").disabled = false;
     }
+
+    $('#myModal').modal(false);
+}   

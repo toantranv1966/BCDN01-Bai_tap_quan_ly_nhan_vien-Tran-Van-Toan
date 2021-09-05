@@ -13,7 +13,7 @@ this.themNhanVien = function(nv){
 
 this.timVitri = function(taikhoannv){
     var viTri = -1;
-    // Duyệt mãng
+    // Hàm map() : Duyệt mãng
     this.mangNV.map(function(item,index){
         if(item.taiKhoanNV == taikhoannv){
             viTri = index;
